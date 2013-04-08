@@ -6,11 +6,11 @@ _thickness = 2;
 _length = 10; // z axis
 
 // do not change anything below this line.
-in_width = 20.5; // y axis
+in_width = 19; // y axis
 in_height = 12.5; // x axis
 in_hook_length = 7; // length of hooks
 in_hook_offset = 4; // offset of inside upward hook
-in_big_radius = 6;
+in_big_radius = 7;
 in_small_radius = 1;
 eps = 0.01;
 
