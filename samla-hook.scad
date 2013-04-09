@@ -64,43 +64,47 @@ cihhun = [cihhue[0], [1,0,1], 0];
 *connector(cihhue);
 *connector(cihhun);
 
-difference() {
-	// outer edge
-	translate([-_thickness, -_thickness, 0])
-		cube([in_height+2*_thickness, in_width+2*_thickness, _length]);
-	bevel(co1e, co1n, l=_length+1, cr=in_big_radius+_thickness, cres=$fn/4);
-	bevel(co2e, co2n, l=_length+1, cr=in_small_radius+_thickness, cres=$fn/4);
-	bevel(co3e, co3n, l=_length+1, cr=in_small_radius+_thickness, cres=$fn/4);
-	bevel(co4e, co4n, l=_length+1, cr=in_small_radius+_thickness, cres=$fn/4);
-
-	// inner edge
+module ikea_samla_clip() {
 	difference() {
-		cube([in_height, in_width, _length+1]);
-		bevel(ci1e, ci1n, l=_length+1, cr=in_big_radius, cres=$fn/4);
-		bevel(ci2e, ci2n, l=_length+1, cr=in_small_radius, cres=$fn/4);
-		bevel(ci3e, ci3n, l=_length+1, cr=in_small_radius, cres=$fn/4);
-		bevel(ci4e, ci4n, l=_length+1, cr=in_small_radius, cres=$fn/4);
+		// outer edge
+		translate([-_thickness, -_thickness, 0])
+			cube([in_height+2*_thickness, in_width+2*_thickness, _length]);
+		bevel(co1e, co1n, l=_length+1, cr=in_big_radius+_thickness, cres=$fn/4);
+		bevel(co2e, co2n, l=_length+1, cr=in_small_radius+_thickness, cres=$fn/4);
+		bevel(co3e, co3n, l=_length+1, cr=in_small_radius+_thickness, cres=$fn/4);
+		bevel(co4e, co4n, l=_length+1, cr=in_small_radius+_thickness, cres=$fn/4);
 
-		// inner, upward hook
+		// inner edge
 		difference() {
-			translate([in_height-in_hook_length, in_hook_offset, 0])
-				cube([in_hook_length, _thickness, _length]);
+			cube([in_height, in_width, _length+1]);
+			bevel(ci1e, ci1n, l=_length+1, cr=in_big_radius, cres=$fn/4);
+			bevel(ci2e, ci2n, l=_length+1, cr=in_small_radius, cres=$fn/4);
+			bevel(ci3e, ci3n, l=_length+1, cr=in_small_radius, cres=$fn/4);
+			bevel(ci4e, ci4n, l=_length+1, cr=in_small_radius, cres=$fn/4);
+
+			// inner, upward hook
+			difference() {
+				translate([in_height-in_hook_length, in_hook_offset, 0])
+					cube([in_hook_length, _thickness, _length]);
+			}
 		}
-	}
 
-	// shorten the outer hook
-	translate([out_hook_length, in_hook_offset+_thickness, 0])
-		cube([in_height, in_width, _length+1]);
+		// shorten the outer hook
+		translate([out_hook_length, in_hook_offset+_thickness, 0])
+			cube([in_height, in_width, _length+1]);
 
-	// add a hole in the inner hook for the cross ribs under the boxes' rim
-	if(_length >= 40) {
-		difference() {
-			translate([in_height-in_hook_length, in_hook_offset, _length/5])
-				cube([in_hook_length/2, _thickness, _length/5*3]);
-			bevel(cihhle, cihhln, l=_thickness, cr=in_hook_length/2, cres=0);
-			bevel(cihhue, cihhun, l=_thickness, cr=in_hook_length/2, cres=0);
+		// add a hole in the inner hook for the cross ribs under the boxes' rim
+		if(_length >= 40) {
+			difference() {
+				translate([in_height-in_hook_length, in_hook_offset, _length/5])
+					cube([in_hook_length/2, _thickness, _length/5*3]);
+				bevel(cihhle, cihhln, l=_thickness, cr=in_hook_length/2, cres=0);
+				bevel(cihhue, cihhun, l=_thickness, cr=in_hook_length/2, cres=0);
+			}
 		}
 	}
 }
 
-// vim: set sw=4 ts=4 noet:
+ikea_samla_clip();
+
+// vim: set sw=2 ts=2 noet:
