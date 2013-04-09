@@ -5,6 +5,8 @@ use <obiscad/attach.scad>
 _thickness = 2;
 // length of the clip
 _length = 40; // z axis
+// logo DXF
+_logo = "stratum0-lowres.dxf";
 
 // do not change anything below this line.
 in_width = 19; // y axis
@@ -14,6 +16,7 @@ in_hook_length = out_hook_length-_thickness; // length of inner hook segment
 in_hook_offset = 4; // offset of inner hook segment on the y axis
 in_big_radius = 7;
 in_small_radius = 1;
+logo_height = 2;
 
 $fn=50;
 
@@ -102,5 +105,13 @@ difference() {
 		}
 	}
 }
+
+// logo is 50x50 units
+translate([-_thickness, in_big_radius, _length/2])
+	scale((in_width-in_big_radius-_thickness)/50)
+	translate([-logo_height/2, 50, -25])
+	rotate([90,0,-90])
+	linear_extrude(height=logo_height, center=true)
+	import(_logo, center=true);
 
 // vim: set sw=4 ts=4 noet:
