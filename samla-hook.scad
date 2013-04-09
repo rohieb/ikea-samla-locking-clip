@@ -1,9 +1,10 @@
 use <obiscad/bevel.scad>
+use <obiscad/attach.scad>
 
 // wall thickness
 _thickness = 2;
 // length of the clip
-_length = 10; // z axis
+_length = 40; // z axis
 
 // do not change anything below this line.
 in_width = 19; // y axis
@@ -13,11 +14,10 @@ in_hook_length = out_hook_length-_thickness; // length of inner hook segment
 in_hook_offset = 4; // offset of inner hook segment on the y axis
 in_big_radius = 7;
 in_small_radius = 1;
-eps = 0.01;
 
 $fn=50;
 
-// in bevel connectors
+// inside bevel connectors
 ci1e = [[0,0,_length/2], [0,0,1], 0];
 ci1n = [ci1e[0], [-1,-1,0], 0];
 *connector(ci1e);
@@ -65,7 +65,7 @@ cihhun = [cihhue[0], [1,0,1], 0];
 *connector(cihhun);
 
 difference() {
-	// outer rim
+	// outer edge
 	translate([-_thickness, -_thickness, 0])
 		cube([in_height+2*_thickness, in_width+2*_thickness, _length]);
 	bevel(co1e, co1n, l=_length+1, cr=in_big_radius+_thickness, cres=$fn/4);
@@ -73,7 +73,7 @@ difference() {
 	bevel(co3e, co3n, l=_length+1, cr=in_small_radius+_thickness, cres=$fn/4);
 	bevel(co4e, co4n, l=_length+1, cr=in_small_radius+_thickness, cres=$fn/4);
 
-	// inner rim
+	// inner edge
 	difference() {
 		cube([in_height, in_width, _length+1]);
 		bevel(ci1e, ci1n, l=_length+1, cr=in_big_radius, cres=$fn/4);
