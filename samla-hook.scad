@@ -8,8 +8,9 @@ _length = 10; // z axis
 // do not change anything below this line.
 in_width = 19; // y axis
 in_height = 12.5; // x axis
-in_hook_length = 7; // length of hooks
-in_hook_offset = 4; // offset of inside upward hook
+out_hook_length = 7; // length of outer hook segment
+in_hook_length = out_hook_length-_thickness; // length of inner hook segment
+in_hook_offset = 4; // offset of inner hook segment on the y axis
 in_big_radius = 7;
 in_small_radius = 1;
 eps = 0.01;
@@ -52,6 +53,17 @@ co4n = ci4n;
 *connector(co4e);
 *connector(co4n);
 
+// bevel connectors for hole in inner hook
+cihhle = [[in_height-in_hook_length/2,in_hook_offset+_thickness/2,_length/5],
+	[0,1,0], 0];
+cihhln = [cihhle[0], [1,0,-1], 0];
+*connector(cihhle);
+*connector(cihhln);
+cihhue = [[cihhle[0][0],cihhle[0][1],4*_length/5], [0,1,0], 0];
+cihhun = [cihhue[0], [1,0,1], 0];
+*connector(cihhue);
+*connector(cihhun);
+
 difference() {
 	// outer rim
 	translate([-_thickness, -_thickness, 0])
@@ -71,14 +83,24 @@ difference() {
 
 		// inner, upward hook
 		difference() {
-			translate([in_height-in_hook_length+_thickness, in_hook_offset, 0])
-				cube([in_hook_length-_thickness, _thickness, _length]);
+			translate([in_height-in_hook_length, in_hook_offset, 0])
+				cube([in_hook_length, _thickness, _length]);
 		}
 	}
 
-	// shorten the hooks
-	translate([in_hook_length, in_hook_offset+_thickness, 0])
+	// shorten the outer hook
+	translate([out_hook_length, in_hook_offset+_thickness, 0])
 		cube([in_height, in_width, _length+1]);
+
+	// add a hole in the inner hook for the cross ribs under the boxes' rim
+	if(_length >= 40) {
+		difference() {
+			translate([in_height-in_hook_length, in_hook_offset, _length/5])
+				cube([in_hook_length/2, _thickness, _length/5*3]);
+			bevel(cihhle, cihhln, l=_thickness, cr=in_hook_length/2, cres=0);
+			bevel(cihhue, cihhun, l=_thickness, cr=in_hook_length/2, cres=0);
+		}
+	}
 }
 
 // vim: set sw=4 ts=4 noet:
