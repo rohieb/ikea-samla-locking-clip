@@ -1,3 +1,6 @@
 [submodule "obiscad"]
 	path = obiscad
 	url = https://github.com/Obijuan/obiscad.git
+[submodule "write"]
+	path = write
+	url = https://github.com/rohieb/Write.scad.git

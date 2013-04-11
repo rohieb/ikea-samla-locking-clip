@@ -1,10 +1,17 @@
 use <obiscad/obiscad/bevel.scad>
 use <obiscad/obiscad/attach.scad>
+use <write/Write.scad>
 
 // wall thickness
 _thickness = 2;
 // length of the clip
 _length = 40; // z axis
+// text on the clip
+_text = "stuff";
+// font for the text
+_font = "orbitron.dxf";
+// font size for the text, 19/2 is the full height
+_fontsize = 19/2;
 
 // do not change anything below this line.
 in_width = 19; // y axis
@@ -103,6 +110,9 @@ module ikea_samla_clip() {
 			}
 		}
 	}
+	translate([-_thickness, in_width-in_big_radius, _length/2])
+		rotate([0,-90,0])
+		write(_text, center=true, font=str("write/", _font), h=_fontsize, t=2*0.7);
 }
 
 ikea_samla_clip();
