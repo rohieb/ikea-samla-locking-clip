@@ -1,5 +1,5 @@
-use <obiscad/bevel.scad>
-use <obiscad/attach.scad>
+use <obiscad/obiscad/bevel.scad>
+use <obiscad/obiscad/attach.scad>
 
 // wall thickness
 _thickness = 2;
