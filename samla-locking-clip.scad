@@ -113,7 +113,7 @@ module ikea_samla_clip() {
 		translate([-logo_height/2, 50, -25])
 		rotate([90,0,-90])
 		linear_extrude(height=logo_height, center=true)
-		import(_logo, center=true);
+		import(str("thing-logos/", _logo), center=true);
 }
 
 ikea_samla_clip();
