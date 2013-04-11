@@ -1,0 +1,3 @@
+[submodule "obiscad"]
+	path = obiscad
+	url = https://github.com/Obijuan/obiscad.git
