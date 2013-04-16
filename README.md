@@ -7,6 +7,7 @@ A clip to lock the IKEA SAMLA boxes so the lid does not fall off. Based on a
 OpenSCAD script.
 
 This thing includes three versions, each distributed on a different branch:
+
  * branch _master_ contains a plain clip without anything else,
  * branch _logo_ contains a version with a customizable logo (see https://github.com/rohieb/thing-logos)
  * branch _text_ contains a version with customizable text.
@@ -14,6 +15,7 @@ This thing includes three versions, each distributed on a different branch:
 Instructions
 ------
 First, choose the branch you want, and checkout the submodules:
+
  * `git submodule init && git submodule update`
 
 Then open `samla-locking-clip.gcode` into OpenSCAD, read the comments and
