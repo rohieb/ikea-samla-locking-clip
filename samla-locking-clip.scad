@@ -1,3 +1,11 @@
+/**
+ * A locking clip for IKEA SAMLA boxes.
+ * Copyright (C) 2013 Roland Hieber <rohieb+ikeasamlaclip@rohieb.name>
+ * The contents of this file are licensed under CC-BY-NC-SA 3.0 Unported.
+ * See https://creativecommons.org/licenses/by-nc-sa/3.0/deed for the
+ * terms of the license.
+ */
+
 use <obiscad/obiscad/bevel.scad>
 use <obiscad/obiscad/attach.scad>
 
