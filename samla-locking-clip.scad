@@ -1,6 +1,9 @@
 /**
  * A locking clip for IKEA SAMLA boxes.
  * Copyright (C) 2013 Roland Hieber <rohieb+ikeasamlaclip@rohieb.name>
+ *
+ * See examples.scad for examples on how to use this module.
+ *
  * The contents of this file are licensed under CC-BY-NC-SA 3.0 Unported.
  * See https://creativecommons.org/licenses/by-nc-sa/3.0/deed for the
  * terms of the license.
@@ -112,11 +115,5 @@ module ikea_samla_clip(length=40) {
 		}
 	}
 }
-
-// instantiate one default clip
-ikea_samla_clip();
-
-// Example: instantiate one clip with a different length
-// ikea_samla_clip(length=30mm);
 
 // vim: set sw=2 ts=2 noet:

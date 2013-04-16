@@ -18,8 +18,12 @@ First, choose the branch you want, and checkout the submodules:
 
  * `git submodule init && git submodule update`
 
-Then open `samla-locking-clip.gcode` into OpenSCAD, read the comments and
-adjust the variables at the beginning of the file, render it and export it.
+The clip itself resides as a module in `samla-locking-clip.scad`, and should be
+well-documented. The file `example.scad` contains some examples on how to use
+this module in OpenSCAD. You can simply render one of the provided examples by
+un-commenting it (removing the `//` at the beginning of the line, be sure to
+comment the other examples by prefixing the lines with `//`), or just use the
+examples for customising your own version of the clip.
 
 The STLs in this repo generally serve as an example. You can print them if you
 want, but at least the _logo_ and _text_ versions are meant to be edited first
