@@ -4,9 +4,9 @@
  *
  * See examples.scad for examples on how to use this module.
  *
- * The contents of this file are licensed under CC-BY-NC-SA 3.0 Unported.
+ * The contents of this file are licenced under CC-BY-NC-SA 3.0 Unported.
  * See https://creativecommons.org/licenses/by-nc-sa/3.0/deed for the
- * terms of the license.
+ * licensing terms.
  */
 
 use <obiscad/obiscad/bevel.scad>
