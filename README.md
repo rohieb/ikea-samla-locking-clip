@@ -32,6 +32,7 @@ want, but at least the _logo_ and _text_ versions are meant to be edited first
 Licence
 -------
 
-This thing is licenced under CC-BY-SA-NC 3.0 Unported.
+This thing is licenced under CC-BY-SA-NC 3.0 Unported. For a full list of the
+licensing terms, see [https://creativecommons.org/licenses/by-nc-sa/3.0/deed](https://creativecommons.org/licenses/by-nc-sa/3.0/deed).
 
 // vim: set et ts=2 sw=2 tw=0:
