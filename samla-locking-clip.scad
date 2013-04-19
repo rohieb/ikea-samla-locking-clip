@@ -23,8 +23,8 @@ module ikea_samla_clip(length=40) {
 	thickness = 2; // wall thickness
 	in_width = 19; // inside dimension on y axis
 	in_height = 12.5; // inside dimension on x axis
-	out_hooklength = 7; // length of outer hook segment
-	in_hooklength = out_hooklength-thickness; // length of inner hook segment
+	out_hook_length = 7; // length of outer hook segment
+	in_hook_length = out_hook_length-thickness; // length of inner hook segment
 	in_hook_offset = 4; // offset of inner hook segment on the y axis
 	in_big_radius = 7; // radius of the big beveled edge
 	in_small_radius = 1; // radius of the small beveled edges
@@ -66,7 +66,7 @@ module ikea_samla_clip(length=40) {
 	*connector(co4n);
 
 	// bevel connectors for hole in inner hook
-	cihhle = [[in_height-in_hooklength/2,in_hook_offset+thickness/2,length/5],
+	cihhle = [[in_height-in_hook_length/2,in_hook_offset+thickness/2,length/5],
 		[0,1,0], 0];
 	cihhln = [cihhle[0], [1,0,-1], 0];
 	*connector(cihhle);
@@ -95,22 +95,22 @@ module ikea_samla_clip(length=40) {
 
 			// inner, upward hook
 			difference() {
-				translate([in_height-in_hooklength, in_hook_offset, 0])
-					cube([in_hooklength, thickness, length]);
+				translate([in_height-in_hook_length, in_hook_offset, 0])
+					cube([in_hook_length, thickness, length]);
 			}
 		}
 
 		// shorten the outer hook
-		translate([out_hooklength, in_hook_offset+thickness, 0])
+		translate([out_hook_length, in_hook_offset+thickness, 0])
 			cube([in_height, in_width, length+1]);
 
 		// add a hole in the inner hook for the cross ribs under the boxes' rim
 		if(length >= 40) {
 			difference() {
-				translate([in_height-in_hooklength, in_hook_offset, length/5])
-					cube([in_hooklength/2, thickness, length/5*3]);
-				bevel(cihhle, cihhln, l=thickness, cr=in_hooklength/2, cres=0);
-				bevel(cihhue, cihhun, l=thickness, cr=in_hooklength/2, cres=0);
+				translate([in_height-in_hook_length, in_hook_offset, length/5])
+					cube([in_hook_length/2, thickness, length/5*3]);
+				bevel(cihhle, cihhln, l=thickness, cr=in_hook_length/2, cres=0);
+				bevel(cihhue, cihhun, l=thickness, cr=in_hook_length/2, cres=0);
 			}
 		}
 	}
