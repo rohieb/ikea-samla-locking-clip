@@ -106,16 +106,27 @@ module ikea_samla_clip() {
 			}
 		}
 	}
+}
 
-	// logo is 50x50 units
+/**
+ * A locking clip for IKEA SAMLA boxes with logo.
+ * Parameters:
+ * length: Length of the clip. Default is 40mm.
+ * logo: Path to a DXF file that is rendered as a logo on the clip. Logos should
+ *  be 50mm×50mm to be rendered correctly. For a collection of logos, see
+ *  https://github.com/rohieb/thing-logos
+ */
+module ikea_samla_clip_with_logo(length=40,
+	logo="thing-logos/stratum0-lowres.dxf") {
+	ikea_samla_clip(length=length);
 	translate([-_thickness, in_big_radius, _length/2])
 		scale((in_width-in_big_radius-_thickness)/50)
 		translate([-logo_height/2, 50, -25])
 		rotate([90,0,-90])
 		linear_extrude(height=logo_height, center=true)
-		import(str("thing-logos/", _logo), center=true);
+		import(logo, center=true);
 }
 
-ikea_samla_clip();
+ikea_samla_clip_with_logo();
 
 // vim: set sw=2 ts=2 noet:
