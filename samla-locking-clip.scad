@@ -23,14 +23,14 @@ in_big_radius = 7; // radius of the big beveled edge
 in_small_radius = 1; // radius of the small beveled edges
 logo_height = 2; // extrusion height of the logo
 
-$fn=50;
-
 /**
  * A locking clip for IKEA SAMLA boxes.
  * Parameters:
  * length: Length of the clip. Default is 40 mm.
  */
 module ikea_samla_clip(length=40) {
+	$fn=50;
+
 	// inside bevel connectors
 	ci1e = [[0,0,length/2], [0,0,1], 0];
 	ci1n = [ci1e[0], [-1,-1,0], 0];
