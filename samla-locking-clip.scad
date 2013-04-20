@@ -15,11 +15,11 @@ use <write/Write.scad>
 
 thickness = 2; // wall thickness
 in_width = 19; // inside dimension on y axis
-in_height = 12.5; // inside dimension on x axis
+in_height = 18.5; // inside dimension on x axis
 out_hook_length = 7; // length of outer hook segment
-in_hook_length = out_hook_length-thickness; // length of inner hook segment
-in_hook_offset = 4; // offset of inner hook segment on the y axis
-in_big_radius = 7; // radius of the big beveled edge
+in_hook_length = 3.5; // length of inner hook segment
+in_hook_offset = 6; // offset of inner hook segment on the y axis
+in_big_radius = 7.5; // radius of the big beveled edge
 in_small_radius = 1; // radius of the small beveled edges
 logo_height = 2; // extrusion height of the logo
 
