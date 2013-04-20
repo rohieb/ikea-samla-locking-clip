@@ -31,7 +31,6 @@ $fn=50;
  * length: Length of the clip. Default is 40 mm.
  */
 module ikea_samla_clip(length=40) {
-
 	// inside bevel connectors
 	ci1e = [[0,0,length/2], [0,0,1], 0];
 	ci1n = [ci1e[0], [-1,-1,0], 0];
