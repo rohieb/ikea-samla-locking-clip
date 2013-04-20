@@ -14,18 +14,21 @@
 use <samla-locking-clip.scad>
 
 // one default clip with length of 40mm
+// this example creates the file example-40mm.stl
 ikea_samla_clip();
 
 // one clip with a different length of 30mm
 // ikea_samla_clip(length=30mm);
 
 // clip with a default logo and default length
+// this example creates the file example-40mm-logo-stratum0-lowres.stl
 // ikea_samla_clip_with_logo();
 
 // clip with different length and logo
 // ikea_samla_clip_with_logo(length=30, logo="thing-logos/pesthoernchen.dxf");
 
 // clip with a default text and default length
+// this example creates the file example-40mm-text-stuff.stl
 // ikea_samla_clip_with_text();
 
 // clip with different length, text and font
