@@ -3,20 +3,27 @@ IKEA SAMLA locking clip
 
 A clip to lock the IKEA SAMLA boxes so the lid does not fall off. Based on a
 [previous work](https://stratum0.org/wiki/RepRap/Modelle#SAMLA-Hook) of
-\_stew\_. The length can be adjusted, see the comments on the start of the
-OpenSCAD script.
+\_stew\_. The length and other parameters can be adjusted.
 
-This thing includes three versions, each distributed on a different branch:
+This thing includes three versions, each implemented as a module in
+`samla-locking-clip.scad`:
 
- * branch _master_ contains a plain clip without anything else,
- * branch _logo_ contains a version with a customizable logo (see https://github.com/rohieb/thing-logos)
- * branch _text_ contains a version with customizable text.
+ * `ikea_samla_clip()` creates a plain clip without anything else,
+ * `ikea_samla_clip_with_logo()` creates a version with a customizable logo
+ * `ikea_samla_clip_with_text()` creates a version with customizable text.
 
 Instructions
 ------
-First, choose the branch you want, and checkout the submodules:
+After cloning this repo, first init and update the submodules:
 
  * `git submodule init && git submodule update`
+
+This fetches all needed dependencies:
+
+ * Obijuan/obiscad, used for beveling edges
+ * rohieb/Write.scad, a mirror of Write.scad by HarlanDMii, used for writing
+   text in OpenSCAD
+ * rohieb/thing-logos, a collection of logos in DXF format
 
 The clip itself resides as a module in `samla-locking-clip.scad`, and should be
 well-documented. The file `example.scad` contains some examples on how to use
