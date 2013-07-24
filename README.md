@@ -12,6 +12,10 @@ This thing includes three versions, each implemented as a module in
  * `ikea_samla_clip_with_logo()` creates a version with a customizable logo
  * `ikea_samla_clip_with_text()` creates a version with customizable text.
 
+Currently, the clip only fits for the smallest SAMLA boxes with 5l/1gal,
+11l/3gal or 22l/6gal. Other sizes are in development, see the
+`feature/bigboxes` branch.
+
 Instructions
 ------
 After cloning this repo, first init and update the submodules:
