@@ -79,20 +79,30 @@ module ikea_samla_clip(length=40) {
 	*connector(cihhun);
 
 	difference() {
-		// outer edge
+		// main body
 		translate([-thickness, -thickness, 0])
 			cube([in_height+2*thickness, in_width+2*thickness, length]);
+		// outside radii:
+		// big rounded section on the outside edge
 		bevel(co1e, co1n, l=length+1, cr=in_big_radius+thickness, cres=$fn/4);
+		// down-facing hook that grabs into the lid
 		bevel(co2e, co2n, l=length+1, cr=in_small_radius+thickness, cres=$fn/4);
+		// outside corner of the hook below the rim
 		bevel(co3e, co3n, l=length+1, cr=in_small_radius+thickness, cres=$fn/4);
+		// inside corner of the hook below the rim
 		bevel(co4e, co4n, l=length+1, cr=in_small_radius+thickness, cres=$fn/4);
 
 		// inner edge
 		difference() {
+			// bulk of the inside of the clip
 			cube([in_height, in_width, length+1]);
+			// big rounded section on the outside edge
 			bevel(ci1e, ci1n, l=length+1, cr=in_big_radius, cres=$fn/4);
+			// down-facing hook that grabs into the lid
 			bevel(ci2e, ci2n, l=length+1, cr=in_small_radius, cres=$fn/4);
+			// outside corner of the hook below the rim
 			bevel(ci3e, ci3n, l=length+1, cr=in_small_radius, cres=$fn/4);
+			// inside corner of the hook below the rim
 			bevel(ci4e, ci4n, l=length+1, cr=in_small_radius, cres=$fn/4);
 
 			// inner, upward hook
